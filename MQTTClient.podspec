@@ -12,10 +12,11 @@ Pod::Spec.new do |mqttc|
 	}
 
 	mqttc.requires_arc = true
-	mqttc.platform = :ios, "6.1", :osx, "10.10", :tvos, "9.0"
+	mqttc.platform = :ios, "6.1", :osx, "10.10", :tvos, "9.0", :watchos, "2.0"
 	mqttc.ios.deployment_target = "6.1"
 	mqttc.osx.deployment_target = "10.10"
 	mqttc.tvos.deployment_target = "9.0"
+  mqttc.watchos.deployment_target = "2.0"
 	mqttc.default_subspec = 'Core'
 
 	mqttc.subspec 'Core' do |core|
@@ -75,15 +76,15 @@ Pod::Spec.new do |mqttc|
 	end
 
 	mqttc.subspec 'Manager' do |manager|
-		manager.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}", 
+		manager.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}",
 					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}",
 					"MQTTClient/MQTTClient/ForegroundReconnection.{h,m}"
 		manager.dependency 'MQTTClient/Min'
 	end
 
 	mqttc.subspec 'ManagerL' do |managerl|
-		managerl.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}", 
-					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}", 
+		managerl.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}",
+					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}",
 					"MQTTClient/MQTTClient/ForegroundReconnection.{h,m}"
 		managerl.dependency 'MQTTClient/MinL'
 		managerl.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'LUMBERJACK=1' }
